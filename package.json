@@ -1,0 +1,36 @@
+{
+  "name": "dsh-session-delete",
+  "version": "1.0.0",
+  "engines": {
+    "dsh": "0.2.1-rc.3"
+  },
+  "private": true,
+  "type": "module",
+  "description": "Delete a session from its sidebar menu, or the current one with /delete, and remove its stored log.",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  }
+}
