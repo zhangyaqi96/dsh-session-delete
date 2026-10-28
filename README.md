@@ -9,6 +9,16 @@
 
 删除成功的行当场消失，无需刷新；子会话（subagent）会一并删除。
 
+## 截图
+
+侧栏会话菜单里的「删除会话」入口（截图为英文界面，对应 `Delete session`）：
+
+![侧栏菜单中的 Delete session](docs/sidebar-menu.png)
+
+确认框：警告不可恢复，并提示打开中的会话会先归档停掉（英文界面，对应标题 `Delete session`、按钮 `Delete permanently`）：
+
+![删除确认框](docs/confirm-dialog.png)
+
 ## 做了什么
 
 两条入口共用同一个确认框。`/delete` 经 Host 侧确认队列（`GET /plugin-session-delete/pending`，客户端每 1.2 秒轮询），不会绕过确认直接删。确认后走 `POST /plugin-session-delete`（经 Host/Origin + 浏览器凭据校验），对目标会话依次：
